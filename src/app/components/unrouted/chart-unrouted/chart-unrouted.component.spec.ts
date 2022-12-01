@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChartBuilderComponent } from './chart-builder.component';
+import { ChartUnroutedComponent } from './chart-unrouted.component';
 
 describe('ChartBuilderComponent', () => {
-  let component: ChartBuilderComponent;
-  let fixture: ComponentFixture<ChartBuilderComponent>;
+  let component: ChartUnroutedComponent;
+  let fixture: ComponentFixture<ChartUnroutedComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ChartBuilderComponent ]
+      declarations: [ ChartUnroutedComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ChartBuilderComponent);
+    fixture = TestBed.createComponent(ChartUnroutedComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

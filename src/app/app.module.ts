@@ -4,13 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/routed/home/home.component';
-import { ChartBuilderComponent } from './components/unrouted/chart-builder/chart-builder.component';
+import { ChartUnroutedComponent } from './components/unrouted/chart-unrouted/chart-unrouted.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ChartBuilderComponent
+    ChartUnroutedComponent
   ],
   imports: [
     BrowserModule,
