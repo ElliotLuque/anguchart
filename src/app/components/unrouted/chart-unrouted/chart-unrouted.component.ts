@@ -1,5 +1,5 @@
-import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { ChartConfiguration, ChartType } from 'chart.js';
+import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { ChartConfiguration, ChartData, ChartType } from 'chart.js';
 import { ChartBuilderService } from 'src/app/service/chart-builder.service';
 
 @Component({
@@ -10,14 +10,14 @@ import { ChartBuilderService } from 'src/app/service/chart-builder.service';
 export class ChartUnroutedComponent implements AfterViewInit {
 
   @Input() type: ChartType;
-  @Input() data: Array<any>;
+  @Input() data: ChartData;
   @Input() options?: ChartConfiguration['options'] | undefined;
 
   @ViewChild('chart') canvas: ElementRef | undefined;
 
   constructor(private chartBuilderService: ChartBuilderService) {
     this.type = 'line';
-    this.data = []
+    this.data = {labels: [], datasets: []};
   } 
 
   ngAfterViewInit(): void {
