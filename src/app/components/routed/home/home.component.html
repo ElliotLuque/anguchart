@@ -1,10 +1,14 @@
 <h1>Ejemplos de gráficas</h1>
 <app-chart-unrouted [type]="'line'"
-                    [data]="exampleData"
-                    [options]="exampleOptions">
+                    [data]="chart1Data"
+                    [options]="chart1Options">
 </app-chart-unrouted>
 <app-chart-unrouted [type]="'bar'" 
-                    [data]="exampleData">
+                    [data]="chart2Data"
+                    [options]="chart2Options">
+</app-chart-unrouted>
+<app-chart-unrouted [type]="'pie'" 
+                    [data]="chart3Data">
 </app-chart-unrouted>
 
 

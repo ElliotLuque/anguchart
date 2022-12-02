@@ -8,35 +8,16 @@ import { ChartConfiguration, ChartData } from 'chart.js';
 })
 export class HomeComponent implements OnInit {
 
-  exampleOptions: ChartConfiguration['options'] = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'left',
-      },
-      title: {
-        display: true,
-        text: 'Título de ejemplo'
-      }
-    }
-  }
+  declare chart1Data: ChartData;;
+  declare chart1Options: ChartConfiguration['options'];
+  declare chart2Data: ChartData;
+  declare chart2Options: ChartConfiguration['options'];
 
-  exampleData: ChartData = {
-    labels: ['A', 'B', 'C', 'D'],
-    datasets: [
-      {
-        label: 'Dataset 1',
-        data: [10, 20, 30, 40],      
-      },
-      {
-        label: 'Dataset 2',
-        data: [50, 60, 20, 80],
-        tension: 0.5
-      },
-    ]
-  }
+  chart3Data: ChartData
 
-  constructor() { }
+  constructor() { 
+    this.chart3Data = {labels: [], datasets: []};
+  }
 
   ngOnInit(): void {
   }
