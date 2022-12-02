@@ -11,9 +11,9 @@ export class ChartUnroutedComponent implements AfterViewInit {
 
   @Input() type: ChartType;
   @Input() data: ChartData;
-  @Input() options?: ChartConfiguration['options'] | undefined;
+  @Input() options?: ChartConfiguration['options'];
 
-  @ViewChild('chart') canvas: ElementRef | undefined;
+  @ViewChild('chart') canvas?: ElementRef;
 
   constructor(private chartBuilderService: ChartBuilderService) {
     this.type = 'line';
