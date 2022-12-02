@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ChartItem, ChartType } from 'chart.js';
-import { IChartOptions } from 'src/app/model/chart-options-interface';
+import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { ChartConfiguration, ChartType } from 'chart.js';
 import { ChartBuilderService } from 'src/app/service/chart-builder.service';
 
 @Component({
@@ -8,21 +7,22 @@ import { ChartBuilderService } from 'src/app/service/chart-builder.service';
   templateUrl: './chart-unrouted.component.html',
   styleUrls: ['./chart-unrouted.component.css']
 })
-export class ChartUnroutedComponent implements OnInit {
+export class ChartUnroutedComponent implements AfterViewInit {
 
-  @Input() chartType: ChartType = 'line';
-  @Input() chartData: Array<any> = [];
-  @Input() chartOptions?: IChartOptions | undefined;
-  @Input() canvasId: string = 'chart-1';
+  @Input() type: ChartType;
+  @Input() data: Array<any>;
+  @Input() options?: ChartConfiguration['options'] | undefined;
 
-  constructor(private chartBuilderService: ChartBuilderService) { } 
+  @ViewChild('chart') canvas: ElementRef | undefined;
 
-  ngOnInit(): void {
-    this.buildChart(this.canvasId, this.chartType, this.chartData, this.chartOptions);
-  }
+  constructor(private chartBuilderService: ChartBuilderService) {
+    this.type = 'line';
+    this.data = []
+  } 
 
-  buildChart(canvasId: string, chartType: ChartType, chartData: Array<any>, chartOptions: IChartOptions | undefined) {
-    return this.chartBuilderService.buildChart(canvasId, chartType, chartData, chartOptions);
+  ngAfterViewInit(): void {
+    const ctx = this.canvas?.nativeElement.getContext('2d');
+    this.chartBuilderService.buildChart(ctx, this.type, this.data, this.options);
   }
 
 }

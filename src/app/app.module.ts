@@ -10,7 +10,7 @@ import { ChartUnroutedComponent } from './components/unrouted/chart-unrouted/cha
   declarations: [
     AppComponent,
     HomeComponent,
-    ChartUnroutedComponent
+    ChartUnroutedComponent,
   ],
   imports: [
     BrowserModule,

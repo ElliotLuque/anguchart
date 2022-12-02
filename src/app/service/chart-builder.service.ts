@@ -1,40 +1,28 @@
 import { Injectable } from '@angular/core';
-import { IChartOptions } from '../model/chart-options-interface';
-import { Chart, ChartItem, ChartType , registerables  } from 'chart.js';
-import { BehaviorSubject } from 'rxjs';
+import { Chart, ChartConfiguration, ChartType, registerables } from 'chart.js';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChartBuilderService {
 
-  /* public generateChartId = new BehaviorSubject<string>('chart-1'); */
-
   constructor() { }
 
-  buildChart(canvasId: string, chartType: ChartType, chartData: Array<any>, chartOptions: IChartOptions | undefined = {scales: {yAxes: [{ticks: {beginAtZero: true}}]}}) {
+  buildChart(ctx: string, type: ChartType, data: Array<any>, options: ChartConfiguration['options'] | undefined) {
     Chart.register(...registerables);
 
-    /* if (this.generateChartId.value === 'chart-1') {
-      const chartSplited = this.generateChartId.value.split('-');
-      const chartNumber = Number(chartSplited[1]) + 1;
-      const newId = 'chart-' + chartNumber;
-
-      this.generateChartId.next(newId);
-      console.log(this.generateChartId.value);
-    } */
-
-    return new Chart(document.getElementById(canvasId) as HTMLCanvasElement , {
-      type: chartType,
+    return new Chart(ctx , {
+      type,
       data: {
-        labels: chartData.map((data: any) => data.label),
+        labels: data.map((data: any) => data.label),
         datasets: [
           {
             label: "test",
-            data: chartData.map((data: any) => data.value),
+            data: data.map((data: any) => data.value),
           }
         ]
-      }
+      },
+      options
     });
   }
 }
