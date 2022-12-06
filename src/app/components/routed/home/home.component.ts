@@ -1,25 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartConfiguration, ChartData } from 'chart.js';
+import { chart1Data, chart1Options, chart2Data, chart2Options, chart3Data } from 'src/assets/exampleData';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
-  declare chart1Data: ChartData;;
-  declare chart1Options: ChartConfiguration['options'];
-  declare chart2Data: ChartData;
-  declare chart2Options: ChartConfiguration['options'];
+  chart1Data = chart1Data;
+  chart1Options = chart1Options;
 
-  chart3Data: ChartData
+  chart2Data = chart2Data;
+  chart2Options = chart2Options;
 
-  constructor() { 
-    this.chart3Data = {labels: [], datasets: []};
-  }
+  chart3Data = chart3Data;
 
-  ngOnInit(): void {
-  }
+  constructor() { }
 
 }

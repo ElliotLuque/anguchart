@@ -48,3 +48,13 @@ export const chart2Data: ChartData = {
     },
   ]
 }
+
+export const chart3Data: ChartData = {
+  labels: ['Red', 'Orange', 'Yellow', 'Green', 'Blue'],
+  datasets: [
+    {
+      label: 'Dataset 1',
+      data: [300, 50, 100, 40, 120],
+    }
+  ]
+};
